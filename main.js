@@ -22,7 +22,7 @@ https://tympanus.net/codrops/2019/10/14/how-to-create-an-interactive-3d-characte
 
   function init() {
     
-    const MODEL_PATH = 'stacy_lightweight.glb';
+    const MODEL_PATH = 'witcher.glb';
     const canvas = document.querySelector('#c');
     const backgroundColor = 0xf1f1f1;
     
@@ -39,7 +39,7 @@ https://tympanus.net/codrops/2019/10/14/how-to-create-an-interactive-3d-characte
     
     // Add a camera
     camera = new THREE.PerspectiveCamera(
-      50,
+      20,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
@@ -48,7 +48,7 @@ https://tympanus.net/codrops/2019/10/14/how-to-create-an-interactive-3d-characte
     camera.position.x = 0;
     camera.position.y = -3;
     
-    let stacy_txt = new THREE.TextureLoader().load('./stacy1.jpg');
+    let stacy_txt = new THREE.TextureLoader().load('./witcher.jpg');
     stacy_txt.flipY = false;
 
 
@@ -83,8 +83,8 @@ https://tympanus.net/codrops/2019/10/14/how-to-create-an-interactive-3d-characte
           }
         });
         
-        model.scale.set(13, 13, 13);
-        model.position.y = -17;
+        model.scale.set(11, 11, 11);
+        model.position.y = -20;
                 
         scene.add(model);
         
@@ -129,7 +129,7 @@ https://tympanus.net/codrops/2019/10/14/how-to-create-an-interactive-3d-characte
     let dirLight = new THREE.DirectionalLight(0xffffff, 0.54);
     dirLight.position.set(-8, 12, 8);
     dirLight.castShadow = true;
-    dirLight.shadow.mapSize = new THREE.Vector2(1024, 1024);
+    dirLight.shadow.mapSize = new THREE.Vector2(2048, 2048);
     dirLight.shadow.camera.near = 0.1;
     dirLight.shadow.camera.far = 1500;
     dirLight.shadow.camera.left = d * -1;
@@ -141,7 +141,7 @@ https://tympanus.net/codrops/2019/10/14/how-to-create-an-interactive-3d-characte
     
     
   // Floor
-  let floorGeometry = new THREE.PlaneGeometry(5000, 5000, 1, 1);
+  let floorGeometry = new THREE.PlaneGeometry(1000, 1000, 1, 1);
   let floorMaterial = new THREE.MeshPhongMaterial({
     color: 0xeeeeee,
     shininess: 0,
