@@ -51,12 +51,19 @@ https://tympanus.net/codrops/2019/10/14/how-to-create-an-interactive-3d-characte
     let stacy_txt = new THREE.TextureLoader().load('./witcher.jpg');
     stacy_txt.flipY = false;
 
-
     const stacy_mtl = new THREE.MeshPhongMaterial({
       map: stacy_txt,
       color: 0xffffff,
       skinning: true
     });
+
+      let textureSphere = new THREE.TextureLoader().load('./bg-witcher.jpg');
+      textureSphere.flipY = true;
+      const image = new THREE.MeshPhongMaterial({
+          map: textureSphere,
+          color: 0xffffff,
+          skinning: true
+      });
 
 
     let loader = new THREE.GLTFLoader();
@@ -152,15 +159,15 @@ https://tympanus.net/codrops/2019/10/14/how-to-create-an-interactive-3d-characte
   floor.receiveShadow = true;
   floor.position.y = -6;
   scene.add(floor);
-    
-let geometry = new THREE.SphereGeometry(8, 32, 32);
-let material = new THREE.MeshBasicMaterial({ color: 0x9bffaf }); // 0xf2ce2e
-let sphere = new THREE.Mesh(geometry, material);
-    
-sphere.position.z = -15;
-sphere.position.y = -2.5;
-sphere.position.x = -0.25;
-scene.add(sphere);   
+
+let geometry = new THREE.CircleGeometry( 2.5, 32 );
+// let material = new THREE.MeshBasicMaterial({ color: 0x9bffaf }); // 0xf2ce2e
+let circle = new THREE.Mesh(geometry, image);
+
+circle.position.z = -5;
+circle.position.y = -0.5;
+circle.position.x = 0;
+scene.add(circle);
  }
 
  
